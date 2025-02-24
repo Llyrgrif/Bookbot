@@ -1,5 +1,7 @@
+import sys
+
 def text_string():
-    with open("books/frankenstein.txt") as f:
+    with open(sys.argv[1]) as f:
         text = f.read()
         words = text.split()
         return words
@@ -18,9 +20,6 @@ def char_count():
 
     return characters
 
-def kirito(dict):
-    return dict["t"]
-
 def mohammed():
     kebabs = []
     char_counts = char_count()
@@ -30,8 +29,3 @@ def mohammed():
     kebabs.sort(reverse=True, key=lambda x: list(x.values())[0])
     return kebabs
 
-mohammed()
-
-
-    #kebabs.sort(reverse=True, key=)
-    #kebabs.sort(reverse=True, key=lambda char:char)

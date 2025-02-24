@@ -1,24 +1,28 @@
 from stats import text_string
 from stats import char_count
 from stats import mohammed
+import sys
 
 def main():
-    with open("books/frankenstein.txt") as f:
+    if len(sys.argv) == 1:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    with open(sys.argv[1]) as f:
         file_contents = f.read()
         print(file_contents)
         print("============ BOOKBOT ============")
-        print("Analyzing book found at books/frankenstein.txt...")
+        print(f"Analyzing book found at {sys.argv[1]}")
         print("----------- Word Count ----------")
         print(f"Found {len(text_string())} total words") 
         print("--------- Character Count -------")
         num_list = mohammed()
-        counter = -1
-        for char in mohammed():
-            counter += 1
-            if f"{num_list[counter]}".isalpha() == False:
-                None
-            else:
-                print(num_list[char])
+        for char in range(0,len(num_list)):
+            for key, value in num_list[char].items():
+                if f"{key}".isalpha() == False:
+                    None
+                else:
+                    print(f"{key}: {value}")        
+
         print("============= END ===============")
         
 
